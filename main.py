@@ -6,7 +6,6 @@ import schedule
 class Main:
     def __init__(self):
         self.config = Config()
-
         self.reader = EmailReader()
 
     def main(self):
@@ -24,9 +23,7 @@ class Main:
 if __name__ == "__main__":
     m = Main()
     m.main()
-
     schedule.every(5).seconds.do(m.main)
-
-    while 1:
+    while True:
         schedule.run_pending()
         sleep(1)
