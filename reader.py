@@ -28,14 +28,13 @@ class EmailReader:
         print("Opening Link:", link)
         req = requests.get(link)
         print("Status Code:",req.status_code)
-        print("is Ok?")
         print(req.ok)
 
 
     def logout(self):
         self.M.logout()
 
-    def processMailbox(self, _from = "no-reply@fivestreet.com", givenAmount = "20000", folder = "INBOX"):
+    def processMailbox(self, _from = "no-reply@fivestreet.com", givenAmount = "200000", folder = "INBOX"):
         print("Processing Mail Inbox")
         self.M.select(folder)
         r, data = self.M.search(None, 'FROM "{}"'.format(_from), '(UNSEEN)')
